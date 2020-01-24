@@ -133,6 +133,21 @@ Whether to use a dark styled keyboard on iOS
 
 Ionic apps work better if the WKWebView is not scrollable, so the scroll is disabled by default, but can be enabled with this preference. This only affects the main ScrollView of the WKWebView, so only affects the body, not other scrollable components.
 
+#### Enabling Navigation Gestures ("Swipe Navigation")
+
+In order to allow swiping backwards and forwards in browser history like Safari does, you can set the following preference in your `config.xml`:
+
+```xml
+<preference name="AllowBackForwardNavigationGestures" value="true" />
+```
+
+You can also set this preference dynamically from JavaScript:
+
+```js
+window.Ionic.WebView.allowsBackForwardNavigationGestures(true)
+window.Ionic.WebView.allowsBackForwardNavigationGestures(false)
+```
+
 ## Plugin Requirements
 
 * **Cordova CLI**: 7.1.0+

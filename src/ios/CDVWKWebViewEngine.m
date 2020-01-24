@@ -794,6 +794,19 @@ NSTimer *timer;
     [userDefaults synchronize];
 }
 
+#pragma mark - Plugin interface
+
+- (void)allowsBackForwardNavigationGestures:(CDVInvokedUrlCommand*)command;
+{
+    id value = [command argumentAtIndex:0];
+    if (!([value isKindOfClass:[NSNumber class]])) {
+        value = [NSNumber numberWithBool:NO];
+    }
+
+    WKWebView* wkWebView = (WKWebView*)_engineWebView;
+    wkWebView.allowsBackForwardNavigationGestures = [value boolValue];
+}
+
 @end
 
 #pragma mark - CDVWKWeakScriptMessageHandler
